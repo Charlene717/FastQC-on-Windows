@@ -45,8 +45,20 @@ fastqc_summary_df <- bind_rows(fastqc_results)
 fastqc_summary_df <- fastqc_summary_df %>%
   select(Sample, Metric, Status)
 
-# 將整理後的結果輸出
-write.csv(fastqc_summary_df, file = file.path(fastqc_dir, "FastQC_summary.csv"), row.names = FALSE)
+# # 將整理後的結果輸出
+# write.csv(fastqc_summary_df, file = file.path(fastqc_dir, "FastQC_summary.csv"), row.names = FALSE)
+# 
+# # 顯示前幾行
+# print(head(fastqc_summary_df))
 
-# 顯示前幾行
-print(head(fastqc_summary_df))
+
+# 重新整理為 Wide Format
+fastqc_summary_wide <- fastqc_summary_df %>%
+  pivot_wider(names_from = Sample, values_from = Status)
+
+# 將結果輸出
+write.csv(fastqc_summary_wide, file = "FastQC_summary_wide.csv", row.names = FALSE)
+
+# 顯示結果
+print(head(fastqc_summary_wide))
+
