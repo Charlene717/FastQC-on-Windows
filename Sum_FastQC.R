@@ -3,8 +3,9 @@ rm(list = ls())  # Remove all objects from the current R environment
 memory.limit(150000)  # Set memory limit
 
 ##### Load Packages #####
-if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
-if(!require("zip")) install.packages("zip"); library(zip)
+if(!require('tidyverse')) {install.packages('tidyverse'); library(tidyverse)}
+if(!require('zip')) {install.packages('zip'); library(zip)}
+
 
 ##### Load Data #####
 # Set the directory containing FastQC result files
