@@ -1,66 +1,64 @@
-##### Presetting ######
-rm(list = ls()) # Remove all objects from the current R environment
-memory.limit(150000)
+##### Presetting #####
+rm(list = ls())  # Remove all objects from the current R environment
+memory.limit(150000)  # Set memory limit
 
-#### Load Packages ####
+##### Load Packages #####
 if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 if(!require("zip")) install.packages("zip"); library(zip)
 
-#### Load Data ####
-# 設定 FastQC 結果所在的資料夾
+##### Load Data #####
+# Set the directory containing FastQC result files
 fastqc_dir <- "C:/Users/q2330/Dropbox/KGD_Lab/20250120_QC_CYLD Cutaneous Syndrome/Fastqc_QC_Report"
 
-# 取得所有 .zip 檔案的路徑
+# Retrieve all .zip files in the directory
 fastqc_files <- list.files(fastqc_dir, pattern = "_fastqc.zip$", full.names = TRUE)
 
-
-#### Data Processing ####
-# 解析 summary.txt 的函數
+##### Data Processing #####
+# Function to parse summary.txt from FastQC results
 parse_fastqc_summary <- function(zip_file) {
-  # 建立暫存目錄
+  # Create a temporary directory for extraction
   temp_dir <- file.path(tempdir(), gsub("_fastqc.zip", "", basename(zip_file)))
   dir.create(temp_dir, showWarnings = FALSE, recursive = TRUE)
   
-  # 解壓縮完整 zip
+  # Extract the zip file
   unzip(zip_file, exdir = temp_dir)
   
-  # 找到 summary.txt 的實際路徑 (通常在子資料夾內)
+  # Locate the summary.txt file (usually inside a subfolder)
   summary_file <- list.files(temp_dir, pattern = "summary.txt$", full.names = TRUE, recursive = TRUE)
   
   if (length(summary_file) == 0) {
-    return(NULL)  # 若找不到，返回 NULL
+    return(NULL)  # Return NULL if summary.txt is not found
   }
   
-  # 讀取 summary.txt
+  # Read summary.txt
   summary_data <- read.delim(summary_file[1], header = FALSE, sep = "\t", stringsAsFactors = FALSE)
   colnames(summary_data) <- c("Status", "Metric", "Filename")
   
-  # 取得樣本名稱
+  # Extract sample name from the file name
   sample_name <- gsub("_fastqc.zip", "", basename(zip_file))
   summary_data$Sample <- sample_name
   
   return(summary_data)
 }
 
-# 讀取所有 FastQC 的 QC 結果
+# Read and process all FastQC result files
 fastqc_results <- lapply(fastqc_files, parse_fastqc_summary)
 
-# 合併成一個 dataframe
+# Combine all results into a single dataframe
 fastqc_summary_df <- bind_rows(fastqc_results)
 
-# 重新排列欄位順序
+# Reorder columns
 fastqc_summary_df <- fastqc_summary_df %>%
   select(Sample, Metric, Status)
 
-
-# 重新整理為 Wide Format
+##### Wide Format Conversion #####
+# Convert to wide format with Metrics as rows and Samples as columns
 fastqc_summary_wide <- fastqc_summary_df %>%
   pivot_wider(names_from = Sample, values_from = Status)
 
-#### Export ####
-# 將結果輸出
+##### Export #####
+# Save the processed results to a CSV file
 write.csv(fastqc_summary_wide, file = "FastQC_summary.csv", row.names = FALSE)
 
-# 顯示結果
+# Display the first few rows
 print(head(fastqc_summary_wide))
-
