@@ -14,6 +14,24 @@ fastqc_dir <- "C:/Users/q2330/Dropbox/KGD_Lab/20250120_QC_CYLD Cutaneous Syndrom
 # Retrieve all .zip files in the directory
 fastqc_files <- list.files(fastqc_dir, pattern = "_fastqc.zip$", full.names = TRUE)
 
+
+#### Set Export ####
+Set_Project <- "CYLD"
+
+# Generate unique export parameters
+Name_time_wo_micro <- substr(gsub("[- :]", "", as.character(Sys.time())), 1, 10) # Generate a unique time-based ID
+Name_FileID <- paste0(Name_time_wo_micro, paste0(sample(LETTERS, 3), collapse = ""))
+
+## Construct Set_note
+Set_note <- paste0(Name_FileID, "_", Set_Project)
+
+
+Name_Export <- paste0(Name_FileID)
+Name_ExportFolder <- paste0("Export_",Set_note)
+# Create export folder if it does not exist
+if (!dir.exists(Name_ExportFolder)){dir.create(Name_ExportFolder)}
+
+
 ##### Data Processing #####
 # Function to parse summary.txt from FastQC results
 parse_fastqc_summary <- function(zip_file) {
@@ -57,9 +75,14 @@ fastqc_summary_df <- fastqc_summary_df %>%
 fastqc_summary_wide <- fastqc_summary_df %>%
   pivot_wider(names_from = Sample, values_from = Status)
 
-##### Export #####
-# Save the processed results to a CSV file
-write.csv(fastqc_summary_wide, file = "FastQC_summary.csv", row.names = FALSE)
-
 # Display the first few rows
 print(head(fastqc_summary_wide))
+
+##### Export #####
+# Save the processed results to a CSV file
+write.csv(fastqc_summary_wide, file = paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary.csv"), row.names = FALSE)
+
+
+## Export session information 
+writeLines(capture.output(sessionInfo()), paste0(Name_ExportFolder,"/", Name_Export,"_session_info.txt"))
+# sessionInfo()
