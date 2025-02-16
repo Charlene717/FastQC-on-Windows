@@ -82,7 +82,51 @@ print(head(fastqc_summary_wide))
 # Save the processed results to a CSV file
 write.csv(fastqc_summary_wide, file = paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary.csv"), row.names = FALSE)
 
-
 ## Export session information 
 writeLines(capture.output(sessionInfo()), paste0(Name_ExportFolder,"/", Name_Export,"_session_info.txt"))
 # sessionInfo()
+
+
+################################################################################
+#### Create colored.xlsx ####
+
+# Install and load required package
+if(!require("openxlsx")) install.packages("openxlsx"); library(openxlsx)
+
+# Create a new workbook
+wb <- createWorkbook()
+
+# Add a worksheet
+addWorksheet(wb, "FastQC Summary")
+
+# Write the data to the worksheet
+writeData(wb, "FastQC Summary", fastqc_summary_wide, rowNames = FALSE)
+
+# Define styles for PASS, FAIL, and WARN
+pass_style <- createStyle(fontColour = "#000000", bgFill = "#A3D977")  # Green
+fail_style <- createStyle(fontColour = "#FFFFFF", bgFill = "#E06666")  # Red
+warn_style <- createStyle(fontColour = "#000000", bgFill = "#FFA500")  # Orange
+
+# Apply conditional formatting to all sample columns (excluding first column "Metric")
+num_cols <- ncol(fastqc_summary_wide)
+
+for (col in 2:num_cols) {  # Start from column 2 since column 1 is "Metric"
+  col_letter <- int2col(col)  # Convert column index to Excel letter
+  
+  conditionalFormatting(wb, sheet = "FastQC Summary", cols = col, rows = 2:(nrow(fastqc_summary_wide) + 1), 
+                        rule = "PASS", style = pass_style, type = "contains")
+  
+  conditionalFormatting(wb, sheet = "FastQC Summary", cols = col, rows = 2:(nrow(fastqc_summary_wide) + 1), 
+                        rule = "FAIL", style = fail_style, type = "contains")
+  
+  conditionalFormatting(wb, sheet = "FastQC Summary", cols = col, rows = 2:(nrow(fastqc_summary_wide) + 1), 
+                        rule = "WARN", style = warn_style, type = "contains")
+}
+
+# Save the workbook
+saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
+
+print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
+
+
+
