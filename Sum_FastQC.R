@@ -81,14 +81,9 @@ fastqc_summary_wide <- fastqc_summary_df %>%
 # Display the first few rows
 print(head(fastqc_summary_wide))
 
-##### Export #####
+## Export
 # Save the processed results to a CSV file
 write.csv(fastqc_summary_wide, file = paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary.csv"), row.names = FALSE)
-
-## Export session information 
-writeLines(capture.output(sessionInfo()), paste0(Name_ExportFolder,"/", Name_Export,"_session_info.txt"))
-# sessionInfo()
-
 
 ################################################################################
 #### Create colored.xlsx ####
@@ -126,10 +121,17 @@ for (col in 2:num_cols) {  # Start from column 2 since column 1 is "Metric"
                         rule = "WARN", style = warn_style, type = "contains")
 }
 
-# Save the workbook
+## Save the workbook
 saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
 
 print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
+
+
+
+## Export session information 
+writeLines(capture.output(sessionInfo()), paste0(Name_ExportFolder,"/", Name_Export,"_session_info.txt"))
+# sessionInfo()
+
 
 
 
