@@ -2,21 +2,19 @@
 # R script: 批次對指定資料夾下的 FASTQ 檔案執行 FastQC
 # ---------------------------------------------------------------
 
-# 請將此設定為您放置 FASTQ 檔案的資料夾路徑 (Windows 須注意反斜線替換):
+# 設定包含 FASTQ 檔的資料夾路徑 (請自行修改為正確的路徑)
 fastq_dir <- "C:/path/to/your/fastq/files"
 
-# (選擇性) 若無法使用 fastqc，請將 fastqc_path 設為 fastqc.exe 的路徑
-# 例如: fastqc_path <- "C:/Program Files/FastQC/fastqc.exe"
-# 如果您已將 fastqc.exe 加入 PATH，則只需: 
-fastqc_path <- "fastqc"
+# 若您要使用 run_fastqc.bat，請指定其絕對路徑
+fastqc_path <- "C:/Charlene/fastqc_v0.12.1/FastQC/run_fastqc.bat"
 
-# 設定輸出報告存放的資料夾，如沒有此資料夾則會自動建立
+# 設定 FastQC 報告輸出資料夾。若此資料夾不存在，會自動建立
 output_dir <- file.path(fastq_dir, "fastqc_results")
 if (!dir.exists(output_dir)) {
   dir.create(output_dir, recursive = TRUE)
 }
 
-# 尋找指定資料夾內以 .fastq 或 .fq 結尾的檔案
+# 尋找指定資料夾內以 .fastq 或 .fq 結尾的檔案 (大小寫不分)
 fastq_files <- list.files(
   path        = fastq_dir,
   pattern     = "\\.(fastq|fq)$",
@@ -24,18 +22,19 @@ fastq_files <- list.files(
   ignore.case = TRUE
 )
 
-# 確認是否有找到任何 FASTQ 檔案
+# 檢查是否找到任何 FASTQ 檔案
 if (length(fastq_files) == 0) {
   stop("在指定的資料夾中未找到任何 FASTQ 檔案，請檢查路徑或檔名是否正確。")
 }
 
-# 對每個 fastq 檔案依序執行 FastQC
+# 使用 system2 執行 run_fastqc.bat
 for (fq in fastq_files) {
   message("正在處理：", fq)
   
-  # system2 可讓我們分開指定指令與參數
-  # -o 指定輸出資料夾
-  # --threads 可指定使用多少 CPU 執行 (可視機器資源調整)
+  # FastQC 常用參數：
+  #   -o       指定輸出資料夾
+  #   --threads  指定要使用多少 CPU 執行
+  # 您可依實際需求增減或調整參數
   cmd_args <- c("-o", output_dir, "--threads", "2", fq)
   
   # 執行 FastQC
