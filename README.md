@@ -38,3 +38,26 @@ If you have an R script named `RUN_FastQC_Windows.R` that runs FastQC on all FAS
 3. **Run the script** in R or RStudio (or use `Rscript` from the command line):
    ```bash
    Rscript RUN_FastQC_Windows.R
+
+
+This script will execute FastQC on every `.fastq` file (or `.fq`) found in the designated folder.
+
+---
+
+## 4. Summarizing Results with `Sum_FastQC.R`
+After running FastQC on all your FASTQ files, use the script `Sum_FastQC.R` to consolidate the results.
+
+1. **Open `Sum_FastQC.R`** in your text editor or RStudio.  
+2. **Run the script** (via RStudio or `Rscript`). It will:
+   - Check each FASTQ file’s FastQC outputs.
+   - Gather various quality control (QC) indicators (e.g., per-base quality, adapter content).
+   - Report which files have passed or failed each QC indicator.
+
+---
+
+## 5. Adjusting Thresholds in `limits.txt`
+If you need to change the default thresholds for QC indicators (e.g., minimum quality score, adapter contamination limits), you can modify the `limits.txt` file:
+
+1. **Locate the configuration folder** in your FastQC installation. It may be at:
+   ```ruby
+   ???\fastqc_v0.12.1\FastQC\Configuration\limits.txt
