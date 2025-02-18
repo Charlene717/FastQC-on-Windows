@@ -12,3 +12,29 @@
 3. You can run FastQC on a single file or multiple files by opening **Command Prompt** (or **PowerShell**), navigating to the FastQC directory, and entering a command such as:
    ```bash
    fastqc C:\path\to\your\data\sample1.fastq C:\path\to\your\data\sample2.fastq
+
+# Note
+**On Windows, you might need to run `fastqc.exe` directly, or include the `.exe` extension if it’s not recognized automatically.**
+
+---
+
+## 3. Analyzing an Entire Folder of FASTQ Files
+If you have an R script named `RUN_FastQC_Windows.R` that runs FastQC on all FASTQ files within a specified folder:
+
+1. **Open the script `RUN_FastQC_Windows.R`** in any text editor (e.g., RStudio or Notepad).
+
+2. **Modify the following within the script**:
+
+   - **FastQC executable path**: Ensure the script points to the `fastqc.exe` file inside your extracted FastQC folder.  
+     ```r
+     fastqc_path <- "C:/Tools/FastQC/fastqc.exe"
+     ```
+     
+   - **Target folder path**: Update the folder path containing your FASTQ files.  
+     ```r
+     data_folder <- "C:/Data/FASTQ_Files/"
+     ```
+
+3. **Run the script** in R or RStudio (or use `Rscript` from the command line):
+   ```bash
+   Rscript RUN_FastQC_Windows.R
