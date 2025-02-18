@@ -5,30 +5,37 @@
    [https://www.bioinformatics.babraham.ac.uk/projects/fastqc/](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)  
 2. **Install a suitable Java Runtime Environment (JRE)**. You can find a link to a suitable Java version on the FastQC website, or you can install any standard JRE (version 1.8 or above should work).
 
+---
+
 ## 2. Manual File Import and Execution
 1. **Extract the FastQC zip file** to any convenient location on your computer.  
    For example: `C:\Tools\FastQC`
-2. Inside the extracted folder, you will see a file named `fastqc` (or `fastqc.exe`) along with other supporting files.
-3. You can run FastQC on a single file or multiple files by opening **Command Prompt** (or **PowerShell**), navigating to the FastQC directory, and entering a command such as:
-   ```bash
-   fastqc C:\path\to\your\data\sample1.fastq C:\path\to\your\data\sample2.fastq
 
-Note **On Windows, you might need to run `fastqc.exe` directly, or include the `.exe` extension if it’s not recognized automatically.**
+2. **Run FastQC via the GUI (using `run_fastqc.bat`)**:  
+   - In the extracted FastQC folder, look for a `.bat` file named `run_fastqc.bat` (or `fastqc.bat` in some distributions).  
+   - Double-click this `.bat` file to launch a simple graphical interface.  
+   - You can then manually select one or more FASTQ files to analyze.
+
+3. **Run FastQC via command line (using `fastqc.exe`)**:  
+   - Inside the extracted folder, you will see a file named `fastqc.exe` (or `fastqc`).  
+   - Open **Command Prompt** (or **PowerShell**), navigate to the FastQC directory, and enter a command such as:
+     ```bash
+     fastqc C:\path\to\your\data\sample1.fastq C:\path\to\your\data\sample2.fastq
+     ```
+     **Note**: On Windows, you might need to run `fastqc.exe` directly, or include the `.exe` extension if it’s not recognized automatically.
 
 ---
 
 ## 3. Analyzing an Entire Folder of FASTQ Files
-If you have an R script named `RUN_FastQC_Windows.R` that runs FastQC on all FASTQ files within a specified folder:
+If you have an R script in **this repository** named `RUN_FastQC_Windows.R` that runs FastQC on all FASTQ files within a specified folder:
 
 1. **Open the script `RUN_FastQC_Windows.R`** in any text editor (e.g., RStudio or Notepad).
 
 2. **Modify the following within the script**:
-
    - **FastQC executable path**: Ensure the script points to the `fastqc.exe` file inside your extracted FastQC folder.  
      ```r
      fastqc_path <- "C:/Tools/FastQC/fastqc.exe"
      ```
-     
    - **Target folder path**: Update the folder path containing your FASTQ files.  
      ```r
      data_folder <- "C:/Data/FASTQ_Files/"
@@ -38,8 +45,7 @@ If you have an R script named `RUN_FastQC_Windows.R` that runs FastQC on all FAS
    ```bash
    Rscript RUN_FastQC_Windows.R
 
-
-This script will execute FastQC on every `.fastq` file (or `.fq`) found in the designated folder.
+This script will execute FastQC on every `.fastq.gz` file found in the designated folder.
 
 ---
 
@@ -59,7 +65,8 @@ If you need to change the default thresholds for QC indicators (e.g., minimum qu
 
 1. **Locate the configuration folder** in your FastQC installation. It may be at:
    ```ruby
-   ???\fastqc_v0.12.1\FastQC\Configuration\limits.txt
+   C:\Tools\FastQC\fastqc_v0.12.1\FastQC\Configuration\limits.txt
+(Adjust the path as needed, depending on where you extracted FastQC.)
 
 2. Open `limits.txt` in a text editor.  
 3. Find the parameter(s) you need to change and edit their values (e.g., minimum per-base quality, maximum adapter contamination threshold).  
