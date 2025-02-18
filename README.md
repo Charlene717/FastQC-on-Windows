@@ -1,6 +1,6 @@
 # How to Operate FastQC on Windows
 
-## 1. Download FastQC and Java
+## 1. Download FastQC
 1. **Download FastQC** from the official website:  
    [https://www.bioinformatics.babraham.ac.uk/projects/fastqc/](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)  
 2. **Install a suitable Java Runtime Environment (JRE)**. You can find a link to a suitable Java version on the FastQC website, or you can install any standard JRE (version 1.8 or above should work).
@@ -27,7 +27,7 @@
 ---
 
 ## 3. Analyzing an Entire Folder of FASTQ Files
-If you have an R script in **this repository** named `RUN_FastQC_Windows.R` that runs FastQC on all FASTQ files within a specified folder:
+Use the R script in **this repository** named `RUN_FastQC_Windows.R` that runs FastQC on all FASTQ files within a specified folder:
 
 1. **Open the script `RUN_FastQC_Windows.R`** in any text editor (e.g., RStudio or Notepad).
 
@@ -50,13 +50,13 @@ This script will execute FastQC on every `.fastq.gz` file found in the designate
 ---
 
 ## 4. Summarizing Results with `Sum_FastQC.R`
-After running FastQC on all your FASTQ files, use the script `Sum_FastQC.R` to consolidate the results.
+After running FastQC on all your FASTQ files, you can use the script `Sum_FastQC.R` to **automatically parse** each `_fastqc.zip` result, extract the **`summary.txt`** files inside, and **consolidate** all QC metrics into a single table. The script then:
 
-1. **Open `Sum_FastQC.R`** in your text editor or RStudio.  
-2. **Run the script** (via RStudio or `Rscript`). It will:
-   - Check each FASTQ file’s FastQC outputs.
-   - Gather various quality control (QC) indicators (e.g., per-base quality, adapter content).
-   - Report which files have passed or failed each QC indicator.
+- **Transforms** the data into a *wide-format* spreadsheet (with metrics as rows and sample names as columns).  
+- **Exports** a standard CSV file (e.g., `FastQC_summary.csv`) for easy viewing.  
+- **Generates** a color-coded Excel file (e.g., `FastQC_summary_colored.xlsx`) where **PASS**, **FAIL**, and **WARN** cells are highlighted in different colors (green, red, and orange, respectively).  
+
+This consolidated summary allows you to quickly assess each QC metric’s status across all samples, without having to open individual FastQC reports.
 
 ---
 
