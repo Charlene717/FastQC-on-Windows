@@ -2,6 +2,11 @@
 # R Script: Batch-run FastQC on FASTQ files in a specified folder
 # ---------------------------------------------------------------
 
+## Presetting
+rm(list = ls())  # Remove all objects from the current R environment
+memory.limit(150000)  # Set memory limit
+
+
 # Set the working directory to the folder containing FastQC.
 # This ensures that the relative paths used by 'run_fastqc.bat'
 # (particularly the CLASSPATH and Java calls) will be recognized correctly.
