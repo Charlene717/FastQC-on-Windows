@@ -1,44 +1,56 @@
 # ---------------------------------------------------------------
-# R script: 批次對指定資料夾下的 FASTQ 檔案執行 FastQC
+# R Script: Batch-run FastQC on FASTQ files in a specified folder
 # ---------------------------------------------------------------
 
-# 設定包含 FASTQ 檔的資料夾路徑 (請自行修改為正確的路徑)
-fastq_dir <- "C:/path/to/your/fastq/files"
+# Set the working directory to the folder containing FastQC.
+# This ensures that the relative paths used by 'run_fastqc.bat'
+# (particularly the CLASSPATH and Java calls) will be recognized correctly.
+setwd("C:/Charlene/fastqc_v0.12.1/FastQC")
 
-# 若您要使用 run_fastqc.bat，請指定其絕對路徑
-fastqc_path <- "C:/Charlene/fastqc_v0.12.1/FastQC/run_fastqc.bat"
+# Define the FastQC batch file name or path.
+# For Windows, this is typically 'run_fastqc.bat'.
+# If you have 'fastqc.exe' instead, specify it here.
+fastqc_exe <- "run_fastqc.bat"
 
-# 設定 FastQC 報告輸出資料夾。若此資料夾不存在，會自動建立
-output_dir <- file.path(fastq_dir, "fastqc_results")
-if (!dir.exists(output_dir)) {
-  dir.create(output_dir, recursive = TRUE)
+# Specify the folder that contains your .fastq.gz files.
+# Please adjust the path below to the location of your input files.
+input_folder <- "C:/Charlene/Code_GitHub_BioInport2025/Sum_FastQC/Input"
+
+# Specify the folder where FastQC output (HTML and ZIP files) will be saved.
+# If the folder does not exist, it will be created automatically.
+output_folder <- "C:/Charlene/Code_GitHub_BioInport2025/Sum_FastQC/Output"
+if (!dir.exists(output_folder)) {
+  dir.create(output_folder, recursive = TRUE)
 }
 
-# 尋找指定資料夾內以 .fastq 或 .fq 結尾的檔案 (大小寫不分)
-fastq_files <- list.files(
-  path        = fastq_dir,
-  pattern     = "\\.(fastq|fq)$",
-  full.names  = TRUE,
-  ignore.case = TRUE
+# Generate a list of all files in 'input_folder' that match the pattern ".fastq.gz".
+# The parameter 'full.names = TRUE' returns the full path for each file.
+file_list <- list.files(
+  path = input_folder,
+  pattern = "\\.fastq\\.gz$",
+  full.names = TRUE
 )
 
-# 檢查是否找到任何 FASTQ 檔案
-if (length(fastq_files) == 0) {
-  stop("在指定的資料夾中未找到任何 FASTQ 檔案，請檢查路徑或檔名是否正確。")
+# Loop through each file in 'file_list' and run FastQC.
+for (f in file_list) {
+  
+  # Construct the command line string to be executed.
+  # It includes:
+  # 1. The FastQC batch file (or executable).
+  # 2. The '--outdir' option pointing to the output folder.
+  # 3. The full path of the current FASTQ file.
+  cmd <- paste(
+    shQuote(fastqc_exe),
+    "--outdir", shQuote(output_folder),
+    shQuote(f)
+  )
+  
+  # Display the constructed command in the R console for reference.
+  message("Executing command: ", cmd)
+  
+  # Execute the FastQC command via the system shell.
+  system(cmd)
 }
 
-# 使用 system2 執行 run_fastqc.bat
-for (fq in fastq_files) {
-  message("正在處理：", fq)
-  
-  # FastQC 常用參數：
-  #   -o       指定輸出資料夾
-  #   --threads  指定要使用多少 CPU 執行
-  # 您可依實際需求增減或調整參數
-  cmd_args <- c("-o", output_dir, "--threads", "2", fq)
-  
-  # 執行 FastQC
-  system2(command = fastqc_path, args = cmd_args, wait = TRUE)
-}
-
-message("FastQC 分析已完成，結果存放於：", output_dir)
+# Print a final message in the console to indicate completion of the FastQC process.
+message("FastQC processing is complete!")
