@@ -13,8 +13,7 @@
    ```bash
    fastqc C:\path\to\your\data\sample1.fastq C:\path\to\your\data\sample2.fastq
 
-# Note
-**On Windows, you might need to run `fastqc.exe` directly, or include the `.exe` extension if it’s not recognized automatically.**
+Note **On Windows, you might need to run `fastqc.exe` directly, or include the `.exe` extension if it’s not recognized automatically.**
 
 ---
 
@@ -61,3 +60,16 @@ If you need to change the default thresholds for QC indicators (e.g., minimum qu
 1. **Locate the configuration folder** in your FastQC installation. It may be at:
    ```ruby
    ???\fastqc_v0.12.1\FastQC\Configuration\limits.txt
+
+2. Open `limits.txt` in a text editor.  
+3. Find the parameter(s) you need to change and edit their values (e.g., minimum per-base quality, maximum adapter contamination threshold).  
+4. Save the file, and re-run FastQC to apply the new thresholds.
+
+---
+
+## 6. Additional Tips
+- **Check Java installation**: If FastQC fails to launch, verify that Java is installed and that its path is correctly set in your system environment variables.
+- **GUI mode (optional)**: In some FastQC distributions for Windows, there is a `.bat` file (e.g., `fastqc.bat`). Double-clicking this can open a simple graphical interface, which allows you to select files manually.
+- **FastQC outputs**: By default, FastQC creates a `*_fastqc.html` summary report and a `*_fastqc.zip` file for each input FASTQ. You can open the `.html` in any web browser to see the graphical summary.
+
+
