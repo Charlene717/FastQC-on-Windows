@@ -9,9 +9,6 @@ if(!require('zip')) {install.packages('zip'); library(zip)}
 
 ##### Load Data #####
 # Set the directory containing FastQC result files
-# fastqc_dir <- "C:/Users/q2330/Dropbox/KGD_Lab/20250120_QC_CYLD Cutaneous Syndrome/Fastqc_QC_Report"
-
-# fastqc_dir <- "C:/Users/q2330/Dropbox/KGD_Lab/Dataset/20240920_Philippines/QC_Report"
 fastqc_dir <- "C:/Users/q2330/Dropbox/KGD_Lab/Dataset/20240920_Philippines/Trimmed_fastq/QC_Report"
 
 # Retrieve all .zip files in the directory
