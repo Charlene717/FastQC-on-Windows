@@ -26,7 +26,7 @@
 
 ---
 
-## 3. Analyzing an Entire Folder of FASTQ Files
+## 3. Analyzing an Entire Folder of FASTQ Files with `RUN_FastQC_Windows.R`
 Use the R script in **this repository** named `RUN_FastQC_Windows.R` that runs FastQC on all FASTQ files within a specified folder:
 
 1. **Open the script `RUN_FastQC_Windows.R`** in any text editor (e.g., RStudio or Notepad).
