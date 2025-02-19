@@ -58,6 +58,8 @@ After running FastQC on all your FASTQ files, you can use the script `Sum_FastQC
 
 This consolidated summary allows you to quickly assess each QC metric’s status across all samples, without having to open individual FastQC reports.
 
+<img src="https://github.com/Charlene717/FastQC-on-Windows/blob/main/www/2025021705QRF_FastQC_summary_colored.png?raw=true" alt="FastQC_summary_colored" width="1000"/>
+
 ---
 
 ## 5. Adjusting Thresholds in `limits.txt`
