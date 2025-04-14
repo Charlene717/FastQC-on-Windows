@@ -10,14 +10,17 @@ if(!require('zip')) {install.packages('zip'); library(zip)}
 ##### Load Data #####
 # Set the directory containing FastQC result files
 # fastqc_dir <- "C:/Users/q2330/Dropbox/KGD_Lab/Dataset/20240920_Philippines/Trimmed_fastq/QC_Report"
-fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/FastQC"
+# fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/FastQC"
+# fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output"
+fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250412_ChatGPTDR"
+
 
 # Retrieve all .zip files in the directory
 fastqc_files <- list.files(fastqc_dir, pattern = "_fastqc.zip$", full.names = TRUE)
 
 
 #### Set Export ####
-Set_Project <- "CYLD"
+Set_Project <- "Trichoepitheliomas_ChatGPTDR" # "CYLD"
 
 # Generate unique export parameters
 Name_time_wo_micro <- substr(gsub("[- :]", "", as.character(Sys.time())), 1, 10) # Generate a unique time-based ID
