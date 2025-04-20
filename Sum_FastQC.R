@@ -1,3 +1,6 @@
+## Ref: https://chatgpt.com/share/680499ed-1b60-8002-abf0-0dbf20ae2f7b
+## https://chatgpt.com/g/g-p-67b46db7124c8191900f83011a09eeaa-charlene-fastqc/c/680488c2-2944-8002-bd30-0a3a75c74d3c
+
 ##### Presetting #####
 rm(list = ls())  # Remove all objects from the current R environment
 memory.limit(150000)  # Set memory limit
