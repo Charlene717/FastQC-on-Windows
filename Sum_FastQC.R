@@ -89,8 +89,10 @@ print(head(fastqc_summary_wide))
 # Save the processed results to a CSV file
 write.csv(fastqc_summary_wide, file = paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary.csv"), row.names = FALSE)
 
-################################################################################
-#### Create colored.xlsx ####
+
+###############################################################################
+##### 依FastQC結果上色 #####
+###############################################################################
 
 # Install and load required package
 if(!require("openxlsx")) install.packages("openxlsx"); library(openxlsx)
@@ -125,8 +127,10 @@ for (col in 2:num_cols) {  # Start from column 2 since column 1 is "Metric"
                         rule = "WARN", style = warn_style, type = "contains")
 }
 
+## Save the workbook
+saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
 
-
+print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
 
 ###############################################################################
 ##### 依 Bulk RNA‑seq 重要性排序並為指標列上色 #####
@@ -202,17 +206,11 @@ for (i in seq_len(nrow(fastqc_summary_wide))) {
   }
 }
 
-# ##── 7. 儲存 Excel -----------------------------------------------------------##
-# saveWorkbook(wb,
-#              file = paste0(Name_ExportFolder,"/", Name_Export,
-#                            "_FastQC_summary_colored.xlsx"),
-#              overwrite = TRUE)
-
-
-## Save the workbook
-saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
-
-print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
+##── 7. 儲存 Excel -----------------------------------------------------------##
+saveWorkbook(wb,
+             file = paste0(Name_ExportFolder,"/", Name_Export,
+                           "_FastQC_summary_colored_metrics_order.xlsx"),
+             overwrite = TRUE)
 
 
 
