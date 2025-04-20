@@ -103,8 +103,8 @@ writeData(wb, "FastQC Summary", fastqc_summary_wide, rowNames = FALSE)
 
 # Define styles for PASS, FAIL, and WARN
 pass_style <- createStyle(fontColour = "#000000", bgFill = "#A3D977")  # Green
-fail_style <- createStyle(fontColour = "#FFFFFF", bgFill = "#E06666")  # Red
-warn_style <- createStyle(fontColour = "#000000", bgFill = "#FFA500")  # Orange
+fail_style <- createStyle(fontColour = "#FFFFFF", bgFill = "#d17b7b")  # Red    # "#E06666"
+warn_style <- createStyle(fontColour = "#000000", bgFill = "#e8bd6f")  # Orange # "#FFA500"
 
 # Apply conditional formatting to all sample columns (excluding first column "Metric")
 num_cols <- ncol(fastqc_summary_wide)
