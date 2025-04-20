@@ -127,10 +127,10 @@ for (col in 2:num_cols) {  # Start from column 2 since column 1 is "Metric"
                         rule = "WARN", style = warn_style, type = "contains")
 }
 
-## Save the workbook
-saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
-
-print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
+# ## Save the workbook
+# saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
+# 
+# print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
 
 ###############################################################################
 ##### 依 Bulk RNA‑seq 重要性排序並為指標列上色 #####
