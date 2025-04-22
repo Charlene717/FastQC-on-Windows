@@ -12,7 +12,6 @@ if(!require('zip')) {install.packages('zip'); library(zip)}
 
 ##### Load Data #####
 # Set the directory containing FastQC result files
-# fastqc_dir <- "C:/Users/q2330/Dropbox/KGD_Lab/Dataset/20240920_Philippines/Trimmed_fastq/QC_Report"
 # fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/FastQC"
 # fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output"
 # fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250412_ChatGPTDR"
@@ -131,6 +130,7 @@ for (col in 2:num_cols) {  # Start from column 2 since column 1 is "Metric"
 # saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
 # 
 # print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
+
 
 ###############################################################################
 ##### 依 Bulk RNA‑seq 重要性排序並為指標列上色 #####
