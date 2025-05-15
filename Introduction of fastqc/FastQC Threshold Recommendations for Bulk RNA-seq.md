@@ -105,9 +105,9 @@
 
 <a id="ref7"></a>7. Babraham Bioinformatics. **FastQC – Overrepresented Sequences** (Module 14). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/14%20Overrepresented%20Sequences.html>  
 
-<a id="ref8"></a>8. Babraham Bioinformatics. **FastQC – Adapter Content** (Module 17). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/17%20Adapter%20Content.html>  
+<a id="ref8"></a>8. Babraham Bioinformatics. **FastQC – Adapter Content** (Module 10). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html>  
 
-<a id="ref9"></a>9. ENCODE Consortium. **ENCODE4 Bulk RNA-seq Data Standards and Pipeline** (2021). <https://www.encodeproject.org/about/experiment-guidelines/>  
+<a id="ref9"></a>9. ENCODE Consortium. **ENCODE3 Bulk RNA-seq Data Standards and Pipeline** (January 2017). <https://www.encodeproject.org/about/experiment-guidelines/>  
 
 <a id="ref10"></a>10. Hansen KD *et al.* **Biases in Illumina transcriptome sequencing caused by random hexamer priming**. *Nucleic Acids Res.* 2010;38:e131. doi:[10.1093/nar/gkq224](https://doi.org/10.1093/nar/gkq224)  
 
