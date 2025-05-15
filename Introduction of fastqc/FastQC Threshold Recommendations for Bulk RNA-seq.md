@@ -115,12 +115,12 @@
 
 <a id="ref12"></a>12. Babraham Bioinformatics. **FastQC – Per Tile Sequence Quality** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Per%20Tile%20Sequence%20Quality.html>  
 
-<a id="ref13"></a>13. ENCODE Consortium. **ENCODE4 Bulk RNA-seq Data Standards and Pipeline** (2021). <https://www.encodeproject.org/about/experiment-guidelines/>  
+<a id="ref13"></a>13. ENCODE Consortium. **ENCODE3 Bulk RNA-seq Data Standards and Pipeline** (2017). <https://www.encodeproject.org/about/experiment-guidelines/>  
 
 <a id="ref14"></a>14. Hansen KD *et al.* **Biases in Illumina transcriptome sequencing caused by random hexamer priming**. *Nucleic Acids Res.* 2010;38:e131. doi:[10.1093/nar/gkq224](https://doi.org/10.1093/nar/gkq224)  
 
 <a id="ref15"></a>15. Conesa A *et al.* **A survey of best practices for RNA-seq data analysis**. *Genome Biol.* 2016;17:13. doi:[10.1186/s13059-016-0881-8](https://doi.org/10.1186/s13059-016-0881-8)  
 
-<a id="ref16"></a>16. Sheng Q *et al.* **Multi-perspective quality control of Illumina RNA sequencing data**. *Brief. Bioinform.* 2017;18:434-443. doi:[10.1093/bib/bbw073](https://doi.org/10.1093/bib/bbw073)  
+<a id="ref16"></a>16. Sheng Q *et al.* **Multi-perspective quality control of Illumina RNA sequencing data**. *Brief. Bioinform.* 2017;18:434-443. doi:[10.1093/bfgp/elw035](https://academic.oup.com/bfg/article/16/4/194/2555401?login=true)  
 
-<a id="ref17"></a>17. Dragana D *et al.* **Demystification of RNA-seq Quality Control**. *Journal of IT and Applications* 2021;11:73-86. <https://doi.org/10.5281/zenodo.5075546>
+<a id="ref17"></a>17. Dragana D *et al.* **Demystification of RNA-seq Quality Control**. *Journal of IT and Applications* 2021;11:73-86. <https://doisrpska.nub.rs/index.php/jita/article/view/8182>
