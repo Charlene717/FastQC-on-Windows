@@ -62,8 +62,8 @@ This consolidated summary allows you to quickly assess each QC metric’s status
 
 If you set `Set_DataType` to **`"Bulk RNA-seq"`**, the script will also generate a table that **categorizes and ranks FastQC metrics by their importance for Bulk RNA-seq experiments**, making it easier for users to interpret QC priorities at a glance.  
 For the recommended thresholds and the rationale behind the importance ranking of each FastQC metric in Bulk RNA-seq, please refer to:  
+[FastQC Threshold Recommendations for Bulk RNA-seq ↗][bulk]
 
-[FastQC Threshold Recommendations for Bulk RNA-seq](https://github.com/Charlene717/FastQC-on-Windows/blob/main/Introduction%20of%20fastqc/FastQC%20Threshold%20Recommendations%20for%20Bulk%20RNA-seq.md)
 ---
 
 ## 5. Adjusting Thresholds in `limits.txt`
@@ -85,4 +85,6 @@ If you need to change the default thresholds for QC indicators (e.g., minimum qu
 - **GUI mode (optional)**: In some FastQC distributions for Windows, there is a `.bat` file (e.g., `fastqc.bat`). Double-clicking this can open a simple graphical interface, which allows you to select files manually.
 - **FastQC outputs**: By default, FastQC creates a `*_fastqc.html` summary report and a `*_fastqc.zip` file for each input FASTQ. You can open the `.html` in any web browser to see the graphical summary.
 
-
+<!-- ------ 連結集中放在文末 ------ -->
+[bulk]: https://github.com/Charlene717/FastQC-on-Windows/blob/main/Introduction%20of%20fastqc/FastQC%20Threshold%20Recommendations%20for%20Bulk%20RNA-seq.md
+說明
