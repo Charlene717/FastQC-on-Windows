@@ -1,7 +1,7 @@
 # FastQC Threshold Recommendations for Bulk RNA-seq (Illumina / **Homo sapiens**)
 
 > **Three priority tiers**  
-  > * 🟥 **Critical review** – keep default/recommended thresholds; any *WARN/FAIL* demands immediate action  
+  > * 🟥 **Critical review** – keep default/recommended thresholds; any *WARN/FAIL* **needs special attention**    
 > * 🟧 **Relaxed for RNA-seq** – warnings require contextual interpretation; thresholds can be loosened if biologically reasonable  
 > * ⬜ **Can be ignored** – normally disabled; enable only for troubleshooting  
 
