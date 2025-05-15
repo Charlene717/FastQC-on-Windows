@@ -93,27 +93,27 @@
 
 <a id="ref1"></a>1. Andrews S. **FastQC – A Quality Control Tool for High Throughput Sequence Data** (2010). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/>  
 
-<a id="ref2"></a>2. Babraham Bioinformatics. **FastQC – Basic Statistics** (Module 1). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html>  
+<a id="ref2"></a>2. Babraham Bioinformatics. **FastQC – Basic Statistics** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html>  
 
-<a id="ref3"></a>3. Babraham Bioinformatics. **FastQC – Per Base Sequence Quality** (Module 2). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/2%20Per%20Base%20Sequence%20Quality.html>  
+<a id="ref3"></a>3. Babraham Bioinformatics. **FastQC – Per Base Sequence Quality** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/2%20Per%20Base%20Sequence%20Quality.html>  
 
-<a id="ref4"></a>4. Babraham Bioinformatics. **FastQC – Per Sequence Quality Scores** (Module 3). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/3%20Per%20Sequence%20Quality%20Scores.html>  
+<a id="ref4"></a>4. Babraham Bioinformatics. **FastQC – Per Sequence Quality Scores** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/3%20Per%20Sequence%20Quality%20Scores.html>  
 
-<a id="ref5"></a>5. Babraham Bioinformatics. **FastQC – Per Base Sequence Content** (Module 4). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/4%20Per%20Base%20Sequence%20Content.html>  
+<a id="ref5"></a>5. Babraham Bioinformatics. **FastQC – Per Base Sequence Content** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/4%20Per%20Base%20Sequence%20Content.html>  
 
-<a id="ref6"></a>6. Babraham Bioinformatics. **FastQC – Per Sequence GC Content** (Module 5). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html>  
+<a id="ref6"></a>6. Babraham Bioinformatics. **FastQC – Per Sequence GC Content** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html>  
 
-<a id="ref7"></a>7. Babraham Bioinformatics. **FastQC – Per Base N Content** (Module 6). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/6%20Per%20Base%20N%20Content.html>  
+<a id="ref7"></a>7. Babraham Bioinformatics. **FastQC – Per Base N Content** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/6%20Per%20Base%20N%20Content.html>  
 
-<a id="ref8"></a>8. Babraham Bioinformatics. **FastQC – Overrepresented Sequences** (Module 14). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/14%20Overrepresented%20Sequences.html>  
+<a id="ref8"></a>8. Babraham Bioinformatics. **FastQC – Overrepresented Sequences** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/9%20Overrepresented%20Sequences.html>  
 
-<a id="ref9"></a>9. Babraham Bioinformatics. **FastQC – Adapter Content** (Module 10). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html>  
+<a id="ref9"></a>9. Babraham Bioinformatics. **FastQC – Adapter Content** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html>  
 
-<a id="ref10"></a>10. Babraham Bioinformatics. **FastQC – Sequence Duplication Levels** (Module 12). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Sequence%20Duplication%20Levels.html>  
+<a id="ref10"></a>10. Babraham Bioinformatics. **FastQC – Sequence Duplication Levels** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html>  
 
-<a id="ref11"></a>11. Babraham Bioinformatics. **FastQC – Sequence Length Distribution** (Module 7). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html>  
+<a id="ref11"></a>11. Babraham Bioinformatics. **FastQC – Sequence Length Distribution** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html>  
 
-<a id="ref12"></a>12. Babraham Bioinformatics. **FastQC – Per Tile Sequence Quality** (Module 11). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/11%20Per%20Tile%20Sequence%20Quality.html>  
+<a id="ref12"></a>12. Babraham Bioinformatics. **FastQC – Per Tile Sequence Quality** . <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Per%20Tile%20Sequence%20Quality.html>  
 
 <a id="ref13"></a>13. ENCODE Consortium. **ENCODE4 Bulk RNA-seq Data Standards and Pipeline** (2021). <https://www.encodeproject.org/about/experiment-guidelines/>  
 
