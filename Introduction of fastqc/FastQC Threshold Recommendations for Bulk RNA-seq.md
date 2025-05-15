@@ -80,10 +80,10 @@
 | Per Sequence Qual Scores | 🟥 | 0 / Q27 / Q20 | Read-level quality |
 | Per Base N Content | 🟥 | 0 / 5 % / 20 % | N = chemistry failure |
 | Over-represented Seqs | 🟥 | 0 / 0.1 % / 1 % | Contaminants/adapters |
-| Sequence Duplication | 🟧 Relaxed | 0 / 20 % / 50 % | Highly expressed genes |
-| Per Base Seq Content | 🟧 | 0 / Δ10 % / Δ20 % | Hexamer bias |
-| Per Seq GC Content | 🟧 | 0 / 15 % / 30 % | GC bimodality |
-| Seq Length Dist. | 🟧 | 0 / 1 / 1 | Variable after trimming |
+| Sequence Duplication | 🟧 Relaxed | 0 / 20 % / 30 % | Highly expressed genes |
+| Per Base Seq Content | 🟧 | 0 / Δ20 % / Δ40 % | Hexamer bias |
+| Per Seq GC Content | 🟧 | 0 / 20 % / 40 % | GC bimodality |
+| Seq Length Dist. | 🟧 | 0 / 0 / 1 | Variable after trimming |
 | Per Tile Seq Quality | ⬜ Ignore | 1 (ignore) | Minor tile issues |
 | K-mer Content | ⬜ | 1 (ignore) | Low specificity |
 
