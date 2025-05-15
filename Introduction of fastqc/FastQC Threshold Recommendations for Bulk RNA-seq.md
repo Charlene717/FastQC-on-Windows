@@ -79,26 +79,26 @@
   | Per Base Seq Quality | 🟥 | 0 / Q10·25 / Q5·20 | Cycle-level quality |
   | Per Sequence Qual Scores | 🟥 | 0 / Q27 / Q20 | Read-level quality |
   | Per Base N Content | 🟥 | 0 / 5 % / 20 % | N = signal failure |
-    | Over-represented Seqs | 🟥 | 0 / 0.1 % / 1 % | Contaminants/adapters |
-    | Sequence Duplication | 🟧 Relaxed | 0 / 20 % / 50 % | Highly expressed genes |
-    | Per Base Seq Content | 🟧 | 0 / Δ10 % / Δ20 % | Hexamer bias |
-    | Per Seq GC Content | 🟧 | 0 / 15 % / 30 % | GC bimodality |
-    | Seq Length Dist. | 🟧 | 0 / 1 / 1 | Variable after trimming |
-    | Per Tile Seq Quality | ⬜ Ignore | 1 (ignore) | Minor tile issues |
-    | K-mer Content | ⬜ | 1 (ignore) | Low specificity |
+  | Over-represented Seqs | 🟥 | 0 / 0.1 % / 1 % | Contaminants/adapters |
+  | Sequence Duplication | 🟧 Relaxed | 0 / 20 % / 50 % | Highly expressed genes |
+  | Per Base Seq Content | 🟧 | 0 / Δ10 % / Δ20 % | Hexamer bias |
+  | Per Seq GC Content | 🟧 | 0 / 15 % / 30 % | GC bimodality |
+  | Seq Length Dist. | 🟧 | 0 / 1 / 1 | Variable after trimming |
+  | Per Tile Seq Quality | ⬜ Ignore | 1 (ignore) | Minor tile issues |
+  | K-mer Content | ⬜ | 1 (ignore) | Low specificity |
     
-    ---
+  ---
     
-    ## References
+  ## References
     
-    1. Andrews S. **FastQC – A Quality Control Tool for High Throughput Sequence Data** (2010). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/>  
-    2. Babraham Bioinformatics. **FastQC Documentation – Basic & Quality Modules** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
-    3. Babraham Bioinformatics. **FastQC Documentation – Per Base/Sequence Content & GC** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
-    4. Babraham Bioinformatics. **FastQC Documentation – Sequence Duplication Levels** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
-    5. Babraham Bioinformatics. **FastQC Documentation – Overrepresented Sequences** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
-    6. Babraham Bioinformatics. **FastQC Documentation – Adapter Content** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
-    7. ENCODE Consortium. **ENCODE4 Bulk RNA-seq Data Standards and Pipeline** (2021). <https://www.encodeproject.org/about/experiment-guidelines/>  
-    8. Hansen KD *et al.* Biases in Illumina transcriptome sequencing caused by random hexamer priming. *Nucleic Acids Res.* 2010;38:e131. doi:[10.1093/nar/gkq224](https://doi.org/10.1093/nar/gkq224)  
+  1. Andrews S. **FastQC – A Quality Control Tool for High Throughput Sequence Data** (2010). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/>  
+  2. Babraham Bioinformatics. **FastQC Documentation – Basic & Quality Modules** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
+  3. Babraham Bioinformatics. **FastQC Documentation – Per Base/Sequence Content & GC** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
+  4. Babraham Bioinformatics. **FastQC Documentation – Sequence Duplication Levels** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
+  5. Babraham Bioinformatics. **FastQC Documentation – Overrepresented Sequences** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
+  6. Babraham Bioinformatics. **FastQC Documentation – Adapter Content** (accessed 2025-05-15). <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/>  
+  7. ENCODE Consortium. **ENCODE4 Bulk RNA-seq Data Standards and Pipeline** (2021). <https://www.encodeproject.org/about/experiment-guidelines/>  
+  8. Hansen KD *et al.* Biases in Illumina transcriptome sequencing caused by random hexamer priming. *Nucleic Acids Res.* 2010;38:e131. doi:[10.1093/nar/gkq224](https://doi.org/10.1093/nar/gkq224)  
   9. Conesa A *et al.* A survey of best practices for RNA-seq data analysis. *Genome Biol.* 2016;17:13. doi:[10.1186/s13059-016-0881-8](https://doi.org/10.1186/s13059-016-0881-8)  
   10. Sheng Q *et al.* Multi-perspective quality control of Illumina RNA sequencing data. *Brief. Bioinform.* 2017;18:434-443. doi:[10.1093/bib/bbw073](https://doi.org/10.1093/bib/bbw073)  
   11. Dragana D *et al.* Demystification of RNA-seq Quality Control. *Journal of IT and Applications* 2021;11:73-86. <https://doi.org/10.5281/zenodo.5075546>
