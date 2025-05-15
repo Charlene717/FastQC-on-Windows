@@ -44,7 +44,7 @@ Use the R script in **this repository** named `RUN_FastQC_Windows.R` that runs F
      ```
 
    - **(Optional) Customise FastQC thresholds**:  
-     To adjust the **PASS / WARN / FAIL cut-offs** used by FastQC, edit  
+     To adjust the **PASS / WARN / FAIL cut-offs** used by FastQC, edit **`limits.txt`** :
      `C:/Tools/FastQC/Configuration/limits.txt`  
      (i.e. the **`limits.txt`** file inside `<FastQC_install_dir>\Configuration`).  
      Save the file and rerun FastQC to apply the new thresholds.
