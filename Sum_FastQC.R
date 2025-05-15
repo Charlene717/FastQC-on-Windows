@@ -14,8 +14,8 @@ if(!require('zip')) {install.packages('zip'); library(zip)}
 # Set the directory containing FastQC result files
 # fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/FastQC"
 # fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output"
-# fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250412_ChatGPTDR"
-fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250421_ChatGPTDR"
+fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250412_ChatGPTDR"
+# fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250421_ChatGPTDR"
 
 # Retrieve all .zip files in the directory
 fastqc_files <- list.files(fastqc_dir, pattern = "_fastqc.zip$", full.names = TRUE)
@@ -171,9 +171,9 @@ if(exists("Set_DataType") && identical(Set_DataType, "Bulk RNA‑seq")){
   # style_relax    <- createStyle(fontColour = "#000000", fgFill = "#ffbe5c") # 橘黃底黑字
   # style_ignore   <- createStyle(fontColour = "#000000", fgFill = "#e0e0e0") # 淺灰底黑字
   
-  style_critical <- createStyle(fontColour = "#FFFFFF", fgFill = "#7a2d61") # 暗粉紅底白字
-  style_relax    <- createStyle(fontColour = "#000000", fgFill = "#d194bd") # 粉紅底黑字
-  style_ignore   <- createStyle(fontColour = "#000000", fgFill = "#e0e0e0") # 淺灰底黑字
+  style_critical <- createStyle(fontColour = "#FFFFFF", fgFill = "#454545") # 暗粉紅底白字
+  style_relax    <- createStyle(fontColour = "#FFFFFF", fgFill = "#807e7f") # 粉紅底黑字
+  style_ignore   <- createStyle(fontColour = "#6b6969", fgFill = "#e0e0e0") # 淺灰底黑字
   
   
   ##── 4. 重新寫入工作表 (取代先前 writeData) -----------------------------------##
