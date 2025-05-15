@@ -23,6 +23,7 @@ fastqc_files <- list.files(fastqc_dir, pattern = "_fastqc.zip$", full.names = TR
 
 #### Set Export ####
 Set_Project <- "Trichoepitheliomas_ChatGPTDR" # "CYLD"
+Set_DataType <- "Bulk RNA‑seq"
 
 # Generate unique export parameters
 Name_time_wo_micro <- substr(gsub("[- :]", "", as.character(Sys.time())), 1, 10) # Generate a unique time-based ID
@@ -126,97 +127,104 @@ for (col in 2:num_cols) {  # Start from column 2 since column 1 is "Metric"
                         rule = "WARN", style = warn_style, type = "contains")
 }
 
-# ## Save the workbook
-# saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
-# 
-# print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
+## Save the workbook
+saveWorkbook(wb, paste0(Name_ExportFolder,"/", Name_Export,"_FastQC_summary_colored.xlsx"), overwrite = TRUE)
+
+print("Excel file with conditional formatting has been saved as FastQC_summary_colored.xlsx")
 
 
 ###############################################################################
 ##### 依 Bulk RNA‑seq 重要性排序並為指標列上色 #####
 ###############################################################################
 
-##── 1. 自訂三大類指標 ------------------------------------------------------##
-critical_metrics <- c("Basic Statistics",
-                      "Adapter Content",
-                      "Per base sequence quality",
-                      "Per sequence quality scores",
-                      "Per base N content",
-                      "Overrepresented sequences")
-
-relax_metrics    <- c("Sequence Duplication Levels",
-                      "Per base sequence content",
-                      "Per sequence GC content",
-                      "Sequence Length Distribution")
-
-ignore_metrics   <- c("Kmer Content",
-                      "Per tile sequence quality")
-
-# 若未列入者保持原順序 (e.g. 新版 FastQC 模組名稱可能不同)
-metric_order <- c(critical_metrics, relax_metrics, ignore_metrics,
-                  setdiff(fastqc_summary_wide$Metric, 
-                          c(critical_metrics, relax_metrics, ignore_metrics)))
-
-##── 2. 依重要性排序 DataFrame ------------------------------------------------##
-fastqc_summary_wide <- fastqc_summary_wide %>% 
-  mutate(Metric = factor(Metric, levels = metric_order)) %>% 
-  arrange(Metric)
-
-##── 3. 建立三種底色 Style ----------------------------------------------------##
-## 建議改用 fgFill 並同時指定 fontColour
-style_critical <- createStyle(fontColour = "#000000", fgFill = "#6dbf92") # 深紅底白字
-style_relax    <- createStyle(fontColour = "#000000", fgFill = "#ffbe5c") # 橘黃底黑字
-style_ignore   <- createStyle(fontColour = "#000000", fgFill = "#e0e0e0") # 淺灰底黑字
-
-
-##── 4. 重新寫入工作表 (取代先前 writeData) -----------------------------------##
-# 若你已在上方寫過 once，可以先 removeWorksheet 或重新建 wb
-removeWorksheet(wb, "FastQC Summary")
-addWorksheet(wb, "FastQC Summary")
-writeData(wb, "FastQC Summary", fastqc_summary_wide, rowNames = FALSE)
-
-##── 5. 先套用 PASS / FAIL / WARN 條件式格式 (與你原碼相同) ------------------##
-num_cols <- ncol(fastqc_summary_wide)
-for (col in 2:num_cols) {
-  conditionalFormatting(wb, "FastQC Summary", cols = col,
-                        rows = 2:(nrow(fastqc_summary_wide) + 1),
-                        rule = "PASS", style = pass_style, type = "contains")
-  conditionalFormatting(wb, "FastQC Summary", cols = col,
-                        rows = 2:(nrow(fastqc_summary_wide) + 1),
-                        rule = "FAIL", style = fail_style, type = "contains")
-  conditionalFormatting(wb, "FastQC Summary", cols = col,
-                        rows = 2:(nrow(fastqc_summary_wide) + 1),
-                        rule = "WARN", style = warn_style, type = "contains")
-}
-
-##── 6. 針對整列再疊加背景色 (stack = TRUE) ----------------------------------##
-for (i in seq_len(nrow(fastqc_summary_wide))) {
-  metric <- fastqc_summary_wide$Metric[i]
-  row_id <- i + 1  # +1 因為第 1 列是標題
+# Set_DataType <- "Bulk RNA‑seq"
+if(exists("Set_DataType") && identical(Set_DataType, "Bulk RNA‑seq")){
+  ##── 1. 自訂三大類指標 ------------------------------------------------------##
+  critical_metrics <- c("Basic Statistics",
+                        "Adapter Content",
+                        "Per base sequence quality",
+                        "Per sequence quality scores",
+                        "Per base N content",
+                        "Overrepresented sequences")
   
-  if (metric %in% critical_metrics) {
-    addStyle(wb, "FastQC Summary", style = style_critical,
-             rows = row_id, cols = 1:num_cols, gridExpand = TRUE, stack = TRUE)
-  } else if (metric %in% relax_metrics) {
-    addStyle(wb, "FastQC Summary", style = style_relax,
-             rows = row_id, cols = 1:num_cols, gridExpand = TRUE, stack = TRUE)
-  } else if (metric %in% ignore_metrics) {
-    addStyle(wb, "FastQC Summary", style = style_ignore,
-             rows = row_id, cols = 1:num_cols, gridExpand = TRUE, stack = TRUE)
+  relax_metrics    <- c("Sequence Duplication Levels",
+                        "Per base sequence content",
+                        "Per sequence GC content",
+                        "Sequence Length Distribution")
+  
+  ignore_metrics   <- c("Kmer Content",
+                        "Per tile sequence quality")
+  
+  # 若未列入者保持原順序 (e.g. 新版 FastQC 模組名稱可能不同)
+  metric_order <- c(critical_metrics, relax_metrics, ignore_metrics,
+                    setdiff(fastqc_summary_wide$Metric, 
+                            c(critical_metrics, relax_metrics, ignore_metrics)))
+  
+  ##── 2. 依重要性排序 DataFrame ------------------------------------------------##
+  fastqc_summary_wide <- fastqc_summary_wide %>% 
+    mutate(Metric = factor(Metric, levels = metric_order)) %>% 
+    arrange(Metric)
+  
+  ##── 3. 建立三種底色 Style ----------------------------------------------------##
+  ## 建議改用 fgFill 並同時指定 fontColour
+  style_critical <- createStyle(fontColour = "#000000", fgFill = "#6dbf92") # 深紅底白字
+  style_relax    <- createStyle(fontColour = "#000000", fgFill = "#ffbe5c") # 橘黃底黑字
+  style_ignore   <- createStyle(fontColour = "#000000", fgFill = "#e0e0e0") # 淺灰底黑字
+  
+  
+  ##── 4. 重新寫入工作表 (取代先前 writeData) -----------------------------------##
+  # 若你已在上方寫過 once，可以先 removeWorksheet 或重新建 wb
+  removeWorksheet(wb, "FastQC Summary")
+  addWorksheet(wb, "FastQC Summary")
+  writeData(wb, "FastQC Summary", fastqc_summary_wide, rowNames = FALSE)
+  
+  ##── 5. 先套用 PASS / FAIL / WARN 條件式格式 (與你原碼相同) ------------------##
+  num_cols <- ncol(fastqc_summary_wide)
+  for (col in 2:num_cols) {
+    conditionalFormatting(wb, "FastQC Summary", cols = col,
+                          rows = 2:(nrow(fastqc_summary_wide) + 1),
+                          rule = "PASS", style = pass_style, type = "contains")
+    conditionalFormatting(wb, "FastQC Summary", cols = col,
+                          rows = 2:(nrow(fastqc_summary_wide) + 1),
+                          rule = "FAIL", style = fail_style, type = "contains")
+    conditionalFormatting(wb, "FastQC Summary", cols = col,
+                          rows = 2:(nrow(fastqc_summary_wide) + 1),
+                          rule = "WARN", style = warn_style, type = "contains")
   }
+  
+  ##── 6. 針對整列再疊加背景色 (stack = TRUE) ----------------------------------##
+  for (i in seq_len(nrow(fastqc_summary_wide))) {
+    metric <- fastqc_summary_wide$Metric[i]
+    row_id <- i + 1  # +1 因為第 1 列是標題
+    
+    if (metric %in% critical_metrics) {
+      addStyle(wb, "FastQC Summary", style = style_critical,
+               rows = row_id, cols = 1:num_cols, gridExpand = TRUE, stack = TRUE)
+    } else if (metric %in% relax_metrics) {
+      addStyle(wb, "FastQC Summary", style = style_relax,
+               rows = row_id, cols = 1:num_cols, gridExpand = TRUE, stack = TRUE)
+    } else if (metric %in% ignore_metrics) {
+      addStyle(wb, "FastQC Summary", style = style_ignore,
+               rows = row_id, cols = 1:num_cols, gridExpand = TRUE, stack = TRUE)
+    }
+  }
+  
+  ##── 7. 儲存 Excel -----------------------------------------------------------##
+  saveWorkbook(wb,
+               file = paste0(Name_ExportFolder,"/", Name_Export,
+                             "_FastQC_summary_colored_metrics_order.xlsx"),
+               overwrite = TRUE)
+  
+  
+  
+  ## Export session information 
+  writeLines(capture.output(sessionInfo()), paste0(Name_ExportFolder,"/", Name_Export,"_session_info.txt"))
+  # sessionInfo()
+  
 }
 
-##── 7. 儲存 Excel -----------------------------------------------------------##
-saveWorkbook(wb,
-             file = paste0(Name_ExportFolder,"/", Name_Export,
-                           "_FastQC_summary_colored_metrics_order.xlsx"),
-             overwrite = TRUE)
 
 
-
-## Export session information 
-writeLines(capture.output(sessionInfo()), paste0(Name_ExportFolder,"/", Name_Export,"_session_info.txt"))
-# sessionInfo()
 
 
 
