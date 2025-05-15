@@ -87,4 +87,3 @@ If you need to change the default thresholds for QC indicators (e.g., minimum qu
 
 <!-- ------ 連結集中放在文末 ------ -->
 [bulk]: https://github.com/Charlene717/FastQC-on-Windows/blob/main/Introduction%20of%20fastqc/FastQC%20Threshold%20Recommendations%20for%20Bulk%20RNA-seq.md
-說明
