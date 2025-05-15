@@ -167,8 +167,12 @@ if(exists("Set_DataType") && identical(Set_DataType, "Bulk RNA‑seq")){
   
   ##── 3. 建立三種底色 Style ----------------------------------------------------##
   ## 建議改用 fgFill 並同時指定 fontColour
-  style_critical <- createStyle(fontColour = "#000000", fgFill = "#6dbf92") # 深紅底白字
-  style_relax    <- createStyle(fontColour = "#000000", fgFill = "#ffbe5c") # 橘黃底黑字
+  # style_critical <- createStyle(fontColour = "#000000", fgFill = "#6dbf92") # 深紅底黑字
+  # style_relax    <- createStyle(fontColour = "#000000", fgFill = "#ffbe5c") # 橘黃底黑字
+  # style_ignore   <- createStyle(fontColour = "#000000", fgFill = "#e0e0e0") # 淺灰底黑字
+  
+  style_critical <- createStyle(fontColour = "#FFFFFF", fgFill = "#7a2d61") # 暗粉紅底白字
+  style_relax    <- createStyle(fontColour = "#000000", fgFill = "#d194bd") # 粉紅底黑字
   style_ignore   <- createStyle(fontColour = "#000000", fgFill = "#e0e0e0") # 淺灰底黑字
   
   
