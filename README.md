@@ -60,6 +60,10 @@ This consolidated summary allows you to quickly assess each QC metric’s status
 
 <img src="https://github.com/Charlene717/FastQC-on-Windows/blob/main/www/2025021705QRF_FastQC_summary_colored_Cut.png?raw=true" alt="FastQC_summary_colored" width="1000"/>
 
+If you set `Set_DataType` to **`"Bulk RNA-seq"`**, the script will also generate a table that **categorizes and ranks FastQC metrics by their importance for Bulk RNA-seq experiments**, making it easier for users to interpret QC priorities at a glance.  
+For the recommended thresholds and the rationale behind the importance ranking of each FastQC metric in Bulk RNA-seq, please refer to:  
+<https://github.com/Charlene717/FastQC-on-Windows/blob/main/Introduction%20of%20fastqc/FastQC%20Threshold%20Recommendations%20for%20Bulk%20RNA-seq.md>
+
 ---
 
 ## 5. Adjusting Thresholds in `limits.txt`
