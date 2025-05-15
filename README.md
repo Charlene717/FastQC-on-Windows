@@ -32,14 +32,23 @@ Use the R script in **this repository** named `RUN_FastQC_Windows.R` that runs F
 1. **Open the script `RUN_FastQC_Windows.R`** in any text editor (e.g., RStudio or Notepad).
 
 2. **Modify the following within the script**:
-   - **FastQC executable path**: Ensure the script points to the `fastqc.exe` file inside your extracted FastQC folder.  
+   - **FastQC executable path**: Point this variable to the location of **your** `fastqc.exe`.  
+     *(The path below is **only an example**; replace it with the actual location of the FastQC executable on your system.)*
      ```r
-     fastqc_path <- "C:/Tools/FastQC/fastqc.exe"
+     fastqc_path <- "C:/Tools/FastQC/fastqc.exe"   # ← example path
      ```
+
    - **Target folder path**: Update the folder path containing your FASTQ files.  
      ```r
-     data_folder <- "C:/Data/FASTQ_Files/"
+     data_folder <- "C:/Data/FASTQ_Files/"  # ← example path
      ```
+
+   - **(Optional) Customise FastQC thresholds**:  
+     To adjust the PASS / WARN / FAIL cut-offs used by FastQC, edit  
+     `C:/Tools/FastQC/Configuration/limits.txt`  # ← example path
+     (i.e. the **`limits.txt`** file inside `<FastQC_install_dir>\Configuration`).  
+     Save the file and rerun FastQC to apply the new thresholds.
+     
 
 3. **Run the script** in R or RStudio (or use `Rscript` from the command line):
    ```bash
