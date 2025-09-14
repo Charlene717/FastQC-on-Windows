@@ -41,10 +41,10 @@ if (!dir.exists(output_folder)) {
 # The parameter 'full.names = TRUE' returns the full path for each file.
 file_list <- list.files(
   path = input_folder,
-  # pattern = "\\.fastq\\.gz$",
-  pattern = "\\.fastq_trimmed\\.gz$",
+  pattern = "\\.(fastq|fastq_trimmed)\\.gz$",
   full.names = TRUE
 )
+
 
 # Loop through each file in 'file_list' and run FastQC.
 for (f in file_list) {
