@@ -20,13 +20,18 @@ fastqc_exe <- "run_fastqc.bat"
 # Specify the folder that contains your .fastq.gz files.
 # Please adjust the path below to the location of your input files.
 # input_folder <- "C:/Charlene/Code_GitHub_BioInport2025/Sum_FastQC/Input"
-input_folder <-"C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq"
+# input_folder <-"C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq"
+
+input_folder <- "A:/Dataset_KGD_Lab/Bulk_RNA-seq/20250617_基米"
 
 
 # Specify the folder where FastQC output (HTML and ZIP files) will be saved.
 # If the folder does not exist, it will be created automatically.
 # output_folder <- "C:/Charlene/Code_GitHub_BioInport2025/Sum_FastQC/Output"
-output_folder <-"C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output"
+# output_folder <-"C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output"
+
+output_folder <- "A:/Dataset_KGD_Lab/Bulk_RNA-seq/20250617_基米/Output"
+
 
 if (!dir.exists(output_folder)) {
   dir.create(output_folder, recursive = TRUE)

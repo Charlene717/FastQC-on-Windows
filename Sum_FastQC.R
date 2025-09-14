@@ -14,15 +14,17 @@ if(!require('zip')) {install.packages('zip'); library(zip)}
 # Set the directory containing FastQC result files
 # fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/FastQC"
 # fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output"
-fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250412_ChatGPTDR"
+# fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250412_ChatGPTDR"
 # fastqc_dir <- "C:/Charlene/Dataset_KGD_Lab/Bulk RNA-seq/Dani_20250316/download_2025-03-26_10-03-24/rawData/Trimmed_fastq/Output_20250421_ChatGPTDR"
+
+fastqc_dir <- "A:/Dataset_KGD_Lab/Bulk_RNA-seq/20250617_基米/Trimmed_fastq/Output_FastQC"
 
 # Retrieve all .zip files in the directory
 fastqc_files <- list.files(fastqc_dir, pattern = "_fastqc.zip$", full.names = TRUE)
 
 
 #### Set Export ####
-Set_Project <- "Trichoepitheliomas_ChatGPTDR" # "CYLD"
+Set_Project <- "Trichoepitheliomas_BSS_ChatGPTDR" # "CYLD"
 Set_DataType <- "Bulk RNA‑seq"
 
 # Generate unique export parameters
